@@ -1,8 +1,7 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session
+from flask import Blueprint, render_template, request, redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from User.user_models import User
-from User.user_models import db
+from Model.models import db, User
 
 auth = Blueprint("auth", __name__, template_folder="templates")
 

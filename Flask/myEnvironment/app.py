@@ -1,10 +1,9 @@
 from flask import Flask
 
-from User.user_models import db as user_db
-# from Song.song_models import db as song_db
+from Model.models import db
 
-from Song.song_views import song_views
-from User.user_views import user_views
+from Controllers.song_views import song_views
+from Controllers.user_views import user_views
 from Auth.auth import auth
 
 def create_app() :
@@ -13,11 +12,9 @@ def create_app() :
   # Create database resource
   app.config.from_object('config')
 
-  user_db.init_app(app)
-  # song_db.init_app(app)
+  db.init_app(app)
   with app.app_context():
-    user_db.create_all()
-    # song_db.create_all()
+    db.create_all()
   
   # Register blueprint routes
   app.register_blueprint(user_views, url_prefix="/user")

@@ -22,7 +22,7 @@ def add_song_to_playlist(song_id, playlist_id):
 
   if song and playlist:
     if song not in playlist.songs:
-      playlist.songs.playlistControllerend(song)
+      playlist.songs.append(song)
       db.session.commit()
 
   return redirect(url_for('view_playlist', playlist_id=playlist_id))

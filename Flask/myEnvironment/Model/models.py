@@ -6,8 +6,9 @@ class Playlist(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(100), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+  song = db.relationship('Song')
 
-  def __init__(self, title, user_id) :
+  def __init__(self, title, user) :
     self.title = title
     self.user_id = user_id
 
@@ -26,12 +27,13 @@ class User(db.Model):
     
     
 class Song(db.Model):
-  song_id = db.Column(db.Integer, primary_key=True)
+  id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(255), nullable=False)
   artist = db.Column(db.String(255), nullable=False)
   duration = db.Column(db.Integer)
   release_date = db.Column(db.Date)
   genre = db.Column(db.String(50))
+  playLists_id = db.Column(db.Integer, db.ForeignKey('playlist.id'), nullable=False)
   
   def __init__(self, title, artist, duration, release_date, genre):
     self.title = title

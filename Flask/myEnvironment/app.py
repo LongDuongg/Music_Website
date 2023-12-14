@@ -2,7 +2,7 @@ from flask import Flask
 
 from Model.models import db
 
-from Controllers.song_views import song_views
+from Controllers.songController import songController
 from Controllers.user_views import user_views
 from Auth.auth import auth
 
@@ -18,7 +18,7 @@ def create_app() :
   
   # Register blueprint routes
   app.register_blueprint(user_views, url_prefix="/user")
-  app.register_blueprint(song_views, url_prefix="/song")
+  app.register_blueprint(songController, url_prefix="/song")
   app.register_blueprint(auth, url_prefix="/auth")
   
   return app

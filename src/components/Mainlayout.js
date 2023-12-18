@@ -9,6 +9,15 @@ import {
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
+import{
+  BsFillPlayCircleFill,
+  BsFillPauseCircleFill,
+  BsShuffle,
+} from "react-icons/bs";
+
+import {CgPlayTrackNext, CgPlayTrackPrev} from "react-icons/cg";
+import {FiRepeat} from "react-icons/fi";
+
 
 const { Header, Sider, Content } = Layout;
 
@@ -21,7 +30,8 @@ const Mainlayout: React.FC = () => {
 
 
   return (
-    <Layout className='' style={{background: "#121212"}}>
+    <Layout className='' style={{background: "#121212", minheight: "100vh"}}>
+    <Layout >
       <Sider trigger={null} collapsible collapsed={collapsed}>
         
 
@@ -70,17 +80,26 @@ const Mainlayout: React.FC = () => {
               height: 64,
             }}
           />
-          
-            <div className='d-flex h-100 align-items-center'>
+            
+            
+            <button className="btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div className='d-flex h-100'>
               <div className='d-flex h-100'>
                 <img className='d-flex h-100 p-2' src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" alt="" />
 
               </div>
-              <div className='text-white'>
+              <div className='text-white text-start '>
                 <h5 className=''>Lam Toan</h5>
                 <p className=''>lamtoan2104@gmail.com</p>
               </div>
             </div>
+  </button>
+  <ul class="dropdown-menu">
+    <li><Link className="dropdown-item ">Profile</Link></li>
+    <li><Link to="/login" className="dropdown-item " >Log out</Link></li>
+    
+  </ul>
+            
           
         </Header>
         <Content
@@ -96,8 +115,42 @@ const Mainlayout: React.FC = () => {
             <h4 className='text-white'>Recently played</h4>
           </div>
         </Content>
+        
       </Layout>
+      
     </Layout>
+    <div className='footer fixed-bottom d-flex align-items-center'>
+      <div className="Current-track p-3 d-flex align-items-center">
+        <img src="https://www.aimm.edu/hubfs/Blog%20Images/Top%2010%20Album%20Covers%20of%202017/Tyler%20the%20Creator-%20Flower%20boy.jpg#keepProtocol" alt="" />
+        <div className='px-3 d-flex flex-column'>
+          <Link className="Track-title">Track</Link>
+          <Link className="Author">Author</Link>
+        </div>
+      </div>
+      <div className="Player-control w-50 d-flex flex-column align-items-center">
+        <div className='Control-button d-flex w-50 justify-content-between align-items-center'>
+        <div className="">
+          <BsShuffle className='text-white fs-4'/>
+        </div>
+        <div className="">
+          <CgPlayTrackPrev className='text-white fs-1'/>
+        </div>
+        <div className="">
+          <BsFillPauseCircleFill className='text-white fs-1'/>
+        </div>
+        <div className="">
+          <CgPlayTrackNext className='text-white fs-1'/>
+        </div>
+        <div className="">
+          <FiRepeat className='text-white fs-4'/>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+    </Layout>
+    
+    
   );
 };
 

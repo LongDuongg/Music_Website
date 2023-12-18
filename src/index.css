@@ -44,3 +44,33 @@ body{
 .ant-layout-header p{
   line-height: 10px;
 }
+
+.footer {
+  background-color: #121212;
+}
+
+.Current-track img{
+  width: 120px;
+  height: 120px;
+}
+
+.Track-title{
+  font-size: 34px;
+  color: white;
+  text-decoration: none;
+  line-height: 30px;
+}
+
+.Author{
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+}
+
+.Track-title:hover{
+  color: rgb(30, 215, 96);
+}
+
+.Author:hover{
+  color: rgb(30, 215, 96);
+}

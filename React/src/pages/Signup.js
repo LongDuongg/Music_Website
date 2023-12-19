@@ -13,12 +13,13 @@ const Signup = () => {
         <h3 className='text-center text-white'>Sign up</h3>
         <p className='text-center text-secondary'>to start listening</p>
         <form action="">
-        <Custominput type='text' label="Email Address" id="email"/>
-        <Custominput type='password' label="New password" id="pass"/>
-        <Custominput type='password' label="Confirm password" id="confirmpass"/>
-        <button className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2' style={{background: "#1ed760"}} type="submit">Sing Up</button>
-        <Link to='/login' className="d-flex justify-content-center text-secondary mt-2">Login</Link>
-    </form>
+          <Custominput type='text' label="Username" id="username"/>
+          <Custominput type='text' label="Email Address" id="email"/>
+          <Custominput type='password' label="New password" id="pass"/>
+          <Custominput type='password' label="Confirm password" id="confirmpass"/>
+          <button className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2' style={{background: "#1ed760"}} type="submit">Sign Up</button>
+          <Link to='/login' className="d-flex justify-content-center text-secondary mt-2">Login</Link>
+        </form>
  
       </div>
     </div>

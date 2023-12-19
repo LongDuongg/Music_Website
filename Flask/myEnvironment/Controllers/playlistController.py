@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint,render_template, request, redirect, url_for,flash
+from flask import Blueprint,render_template, request, redirect, url_for,flash
 
 from Model.models import db, Song, Playlist
 
@@ -6,13 +6,14 @@ playlistController = Blueprint("playlistController", __name__)
 
 @playlistController.route('/view_playlist/<int:playlist_id>')
 def view_playlist(playlist_id):
-  playlist = Playlist.query.get(playlist_id)
+  # playlist = Playlist.query.get(playlist_id)
 
-  if playlist:
-    songs = playlist.songs.all() 
-    return render_template('view_playlist.html', playlist=playlist, songs=songs)
+  # if playlist:
+  #   songs = playlist.songs.all() 
+  #   return render_template('view_playlist.html', playlist=playlist, songs=songs)
 
-  return "Danh sách phát không tồn tại, vui lòng xem lại" 
+  # return "Danh sách phát không tồn tại, vui lòng xem lại" 
+  return "<h1>playlist</h1>"
 
 
 @playlistController.route('/add_song_to_playlist/<int:song_id>/<int:playlist_id>', methods=['POST'])

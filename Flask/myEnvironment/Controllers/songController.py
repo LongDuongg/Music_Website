@@ -28,7 +28,7 @@ def add_song():
   return render_template('add_song.html')
   
   
-@songController.route('/song/<int:song_id>/delete', methods=['GET', 'POST'])
+@songController.route('/<int:song_id>/delete', methods=['GET', 'POST'])
 def delete_song(song_id):
   song = Song.query.get(song_id)
 
@@ -40,7 +40,7 @@ def delete_song(song_id):
   return render_template('delete_song.html', song=song)
 
 
-@songController.route('/song/<int:song_id>/edit', methods=['GET', 'POST'])
+@songController.route('/<int:song_id>/edit', methods=['GET', 'POST'])
 def edit_song(song_id):
   song = Song.query.get(song_id)
 

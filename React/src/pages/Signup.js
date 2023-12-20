@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import Custominput from '../components/Custominput'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate  } from 'react-router-dom'
+import { guestApi } from "../api/mock-api";
+
+
 const Signup = () => {
+
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [confirmedPass, setConfirmedPass] = useState();
+
+  const navigate = useNavigate();
+
   return (
     <div className="py-5" style={{background: "#000000", minHeight: "100vh"}}>
       <br/>
@@ -13,11 +24,23 @@ const Signup = () => {
         <h3 className='text-center text-white'>Sign up</h3>
         <p className='text-center text-secondary'>to start listening</p>
         <form action="">
-          <Custominput type='text' label="Username" id="username"/>
-          <Custominput type='text' label="Email Address" id="email"/>
-          <Custominput type='password' label="New password" id="pass"/>
-          <Custominput type='password' label="Confirm password" id="confirmpass"/>
-          <button className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2' style={{background: "#1ed760"}} type="submit">Sign Up</button>
+          <Custominput type='text' label="Username" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+          <Custominput type='text' label="Email Address" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          <Custominput type='password' label="New password" id="pass" value={password} onChange={(e) => setPassword(e.target.value)}/>
+          <Custominput type='password' label="Confirm password" id="confirmpass" value={confirmedPass} onChange={(e) => setConfirmedPass(e.target.value)}/>
+          <button 
+            className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2' 
+            style={{background: "#1ed760"}} 
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              console.log({username, email, password, confirmedPass});
+              guestApi.signUp({username, email, password, confirmedPass});
+              navigate("/login");
+            }}
+          >
+            Sign Up
+          </button>
           <Link to='/login' className="d-flex justify-content-center text-secondary mt-2">Login</Link>
         </form>
  

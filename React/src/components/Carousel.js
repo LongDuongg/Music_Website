@@ -9,7 +9,6 @@ const contentStyle: React.CSSProperties = {
 
 const App: React.FC = () => (
   <Carousel autoplay>
-   
       <Link className='position-relative'>
       <div className="title-wrapper position-absolute col-4 text-white">
         <h2 className="Album">
@@ -94,10 +93,6 @@ const App: React.FC = () => (
      style={contentStyle}
      />
       </Link>
-
-      
-    
-    
   </Carousel>
 );
 

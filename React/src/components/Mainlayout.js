@@ -93,7 +93,6 @@ const navigate = useNavigate();
                 <div className='d-flex h-100'>
                   <img className='d-flex h-100 p-2' src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" alt="" />
 
-<<<<<<< HEAD:React/src/components/Mainlayout.js
                 </div>
                 <div className='text-white text-start '>
                   <h5 className=''>Lam Toan</h5>
@@ -121,8 +120,7 @@ const navigate = useNavigate();
               <li><Link to="/login" className="dropdown-item " >Log out</Link></li>
               
             </ul> */}
-=======
-              </div>
+              {/* </div>
               <div className='text-white text-start '>
                 <h5 className=''>Lam Toan</h5>
                 <p className=''>lamtoan2104@gmail.com</p>
@@ -133,9 +131,8 @@ const navigate = useNavigate();
     <li><Link to="/profile"className="dropdown-item ">Profile</Link></li>
     <li><Link to="/login" className="dropdown-item " >Log out</Link></li>
     
-  </ul>
+  </ul> */}
             
->>>>>>> origin/master:src/components/Mainlayout.js
           
         </Header>
 

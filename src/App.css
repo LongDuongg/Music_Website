@@ -1,0 +1,63 @@
+.title-wrapper {
+    top: 15%;
+    left: 3%
+}
+
+.floatted-button{
+    background-color: rgb(30, 215, 96);
+    height: 50px;
+    width: 50px;
+    bottom: -60px;
+    right:10px;
+    transition: 0.3s;
+}
+
+
+  .button {
+    background-color: rgb(30, 215, 96);
+  }
+ 
+ .album-cover{
+  overflow: hidden;
+ }
+
+ .artist-cover{
+  overflow: hidden;
+ }
+
+ .album-card:hover .floatted-button{
+  bottom: 10px;
+ }
+
+ .ant-input-affix-wrapper{
+  height: 50px;
+ }
+
+.ant-select{
+  height: 50px;
+}
+
+.ant-input-affix-wrapper:focus-within{
+  border: solid 1px rgb(30, 215, 96);
+ }
+
+ .ant-input-affix-wrapper:hover{
+  border: solid 1px #1ed760;
+ }
+
+.profile-img{
+  bottom: 5%;
+}
+
+.cover-img{
+  height: 400px;
+}
+
+.ant-table-row{
+  background: none;
+}
+
+.play-button{
+  width: 50px;
+  height: 50px;
+}

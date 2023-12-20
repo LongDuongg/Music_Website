@@ -19,6 +19,7 @@ import {CgPlayTrackNext, CgPlayTrackPrev} from "react-icons/cg";
 import {FiRepeat} from "react-icons/fi";
 
 
+
 const { Header, Sider, Content } = Layout;
 
 const Mainlayout: React.FC = () => {
@@ -82,26 +83,41 @@ const Mainlayout: React.FC = () => {
           />
             
             
-            <button className="btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <div className='d-flex h-100'>
-              <div className='d-flex h-100'>
-                <img className='d-flex h-100 p-2' src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" alt="" />
+            {/* <button className="btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"> */}
+              {/* <div className='d-flex h-100'>
+                <div className='d-flex h-100'>
+                  <img className='d-flex h-100 p-2' src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" alt="" />
 
-              </div>
-              <div className='text-white text-start '>
-                <h5 className=''>Lam Toan</h5>
-                <p className=''>lamtoan2104@gmail.com</p>
-              </div>
-            </div>
-  </button>
-  <ul class="dropdown-menu">
-    <li><Link className="dropdown-item ">Profile</Link></li>
-    <li><Link to="/login" className="dropdown-item " >Log out</Link></li>
-    
-  </ul>
-            
+                </div>
+                <div className='text-white text-start '>
+                  <h5 className=''>Lam Toan</h5>
+                  <p className=''>lamtoan2104@gmail.com</p>
+                </div>
+              </div> */}
+              <Link to={"/Login"} className="btn">
+                <button style={{
+                  padding: "7px 25px", 
+                  minheight: "100vh", 
+                  cursor: "pointer",
+                  background:"#0000",
+                  border:"none",
+                  color: "#fff",
+                  fontWeight:"bold",
+                  fontSize: "1.5rem"
+                }}>
+                  Login
+                </button>
+              </Link>
+            {/* </button> */}
+
+            {/* <ul class="dropdown-menu">
+              <li><Link className="dropdown-item ">Profile</Link></li>
+              <li><Link to="/login" className="dropdown-item " >Log out</Link></li>
+              
+            </ul> */}
           
         </Header>
+
         <Content
           style={{
             margin: '24px 16px',

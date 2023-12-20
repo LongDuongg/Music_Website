@@ -74,3 +74,13 @@ body{
 .Author:hover{
   color: rgb(30, 215, 96);
 }
+
+.secondary-button{
+  width: 100%;
+  border: solid 1px rgb(30, 215, 96);
+  color: rgb(30, 215, 96);
+}
+
+.ant-table{
+  background: none;
+}

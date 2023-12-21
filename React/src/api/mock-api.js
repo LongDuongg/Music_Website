@@ -21,4 +21,24 @@ export const guestApi = {
     .catch(error => console.log(error))
   },
 
+  login: async ({username, password}) => {
+    await waitTimeout(500);
+    fetch("/auth/login", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json, text/plain, */*",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      })
+    })
+    .then( async (res) => {
+      const data = await res.json();
+      console.log(data);
+      return data;
+    }).catch((error) => console.log(error))
+  },
+
 }

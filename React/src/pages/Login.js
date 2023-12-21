@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Custominput from '../components/Custominput'
-import {Link} from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom'
+import { guestApi } from "../api/mock-api";
+
 const Login = () => {
+
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+
+  const navigate = useNavigate();
+
   return (
     <div className="py-5" style={{background: "#000000", minHeight: "100vh"}}>
       <br/>
@@ -13,10 +21,27 @@ const Login = () => {
         <h3 className='text-center text-white'>Login</h3>
         <p className='text-center text-secondary'>Login to your account to continue</p>
         <form action="">
-        <Custominput type='text' label="Username" id="username"/>
-        <Custominput type='password' label="Password" id="pass"/>
+        <Custominput type='text' label="Username" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+        <Custominput type='password' label="Password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         
-        <Link to='/'className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-dark text-center text-decoration-none' style={{background: "#1ed760"}} type="submit">Login</Link>
+        <button 
+          className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-dark text-center text-decoration-none' 
+          style={{background: "#1ed760"}} 
+          type="submit"
+          onClick={async (e) => {
+            e.preventDefault();
+            if (guestApi.login({username, password})) {
+              navigate("/");
+            } else {
+              alert("invalid username or password")
+            }
+            // console.log( await guestApi.login({username, password}));
+            setUsername('')
+            setPassword('')
+          }}
+        >
+          Login
+        </button>
         <Link to='/signup' className="d-flex justify-content-center mt-2" style={{color:"#1ed760"}}>Signup</Link>
         <Link to='/forgot-password' className="d-flex justify-content-center text-secondary p-0">Forgot password?</Link>
     </form>

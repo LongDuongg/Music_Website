@@ -3,25 +3,21 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from Model.models import db, User
 
-auth = Blueprint("auth", __name__, template_folder="templates")
+auth = Blueprint("auth", __name__)
 
-@auth.route('/sign-up', methods=['GET', 'POST'])
+@auth.route('/sign-up', methods=['POST'])
 def sign_up():
-  if request.method == 'POST':
-    username = request.form['username']
-    password = request.form['password']
-    email = request.form['email']
+  username = request.json['username']
+  email = request.json['email']
+  password = request.json['password']
+  hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
 
-    hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
-
-    new_user = User(username=username, password=hashed_password, email=email)
-    
-    db.session.add(new_user)
-    db.session.commit()
-
-    return redirect(url_for('auth.login'))
+  print("{}, {}, {}".format(username, email, hashed_password))
+  new_user = User(username=username, password=hashed_password, email=email)
   
-  return render_template('sign-up.html')
+  db.session.add(new_user)
+  db.session.commit()
+
 
 
 @auth.route('/login', methods=['GET', 'POST'])

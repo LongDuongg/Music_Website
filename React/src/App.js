@@ -7,9 +7,11 @@ import Mainlayout from './components/Mainlayout';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Search from './pages/Search';
-import YourLibrary from './pages/YourLibrary';
 import Upload from './pages/Upload';
 import Profile from './pages/Profile';
+import Albumdetails from './pages/Albumdetails';
+import Song from './pages/Song'
+import Searchresults from './pages/Searchresults'
 function App() {
   return (
     <Router>
@@ -22,9 +24,11 @@ function App() {
         <Route path="/" element={<Mainlayout />}>
           <Route path="/" element={<Home/>}/>
           <Route path="/search" element={<Search/>}/>
-          <Route path="/your-library" element={<YourLibrary/>}/>
+          <Route path="/search-results" element={<Searchresults/>}/>
           <Route path="/upload" element={<Upload/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/album-detail" element={<Albumdetails/>}/>
+          <Route path="/song" element={<Song/>}/>
         </Route>
       </Routes>
     </Router>

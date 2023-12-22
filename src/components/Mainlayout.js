@@ -14,6 +14,7 @@ import{
   BsFillPauseCircleFill,
   BsShuffle,
 } from "react-icons/bs";
+import { RiAccountCircleLine } from "react-icons/ri";
 
 import {CgPlayTrackNext, CgPlayTrackPrev} from "react-icons/cg";
 import {FiRepeat} from "react-icons/fi";
@@ -33,7 +34,16 @@ const navigate = useNavigate();
   return (
     <Layout className='' style={{background: "#121212", minheight: "100vh"}}>
     <Layout >
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+      <Sider
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 1,
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+      }}
+      trigger={null} collapsible collapsed={collapsed}>
         
 
         <div className='p-3 mb-2'>
@@ -62,9 +72,9 @@ const navigate = useNavigate();
               label: 'Search',
             },
             {
-              key: 'your-library',
-              icon: <RiFolderMusicFill className='fs-4' />,
-              label: 'Your Library',
+              key: 'profile',
+              icon: <RiAccountCircleLine className='fs-4' />,
+              label: 'Profile',
             },
             
           ]}

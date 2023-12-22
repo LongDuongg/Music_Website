@@ -10,7 +10,7 @@ const contentStyle: React.CSSProperties = {
 const App: React.FC = () => (
   <Carousel autoplay>
    
-      <Link className='position-relative'>
+      <Link to='/album-detail'className='position-relative'>
       <div className="title-wrapper position-absolute col-4 text-white">
         <h2 className="Album">
         did you know that there's a tunnel under ocean blvd
@@ -18,7 +18,7 @@ const App: React.FC = () => (
         <p className="Artist">
             Lana Del Rey
         </p>
-        <Link to='/'className='border-0 px-3 py-2 fw-bold w-20 rounded-pill text-dark text-center text-decoration-none'
+        <Link to='/album-detail'className='border-0 px-3 py-2 fw-bold w-20 rounded-pill text-dark text-center text-decoration-none'
             style={{background: "#1ed760"}} type="submit">
               
             Listen Now
@@ -31,7 +31,7 @@ const App: React.FC = () => (
      />
       </Link>
 
-      <Link className='position-relative'>
+      <Link to='/album-detail' className='position-relative'>
       <div className="title-wrapper position-absolute col-4 text-white">
         <h2 className="Album">
         Happier Than Ever
@@ -39,7 +39,7 @@ const App: React.FC = () => (
         <p className="Artist">
         Billie Eilish
         </p>
-        <Link to='/'className='border-0 px-3 py-2 fw-bold w-20 rounded-pill text-dark text-center text-decoration-none'
+        <Link to='/album-detail'className='border-0 px-3 py-2 fw-bold w-20 rounded-pill text-dark text-center text-decoration-none'
             style={{background: "#1ed760"}} type="submit">
               
             Listen Now
@@ -53,7 +53,7 @@ const App: React.FC = () => (
      />
       </Link>
       
-      <Link className='position-relative'>
+      <Link to='/album-detail' className='position-relative'>
       <div className="title-wrapper position-absolute col-4 text-white">
         <h2 className="Album">
         Unreal Unearth
@@ -61,7 +61,7 @@ const App: React.FC = () => (
         <p className="Artist">
         Hozier
         </p>
-        <Link to='/'className='border-0 px-3 py-2 fw-bold w-20 rounded-pill text-dark text-center text-decoration-none'
+        <Link to='/album-detail' className='border-0 px-3 py-2 fw-bold w-20 rounded-pill text-dark text-center text-decoration-none'
             style={{background: "#1ed760"}} type="submit">
               
             Listen Now
@@ -74,7 +74,7 @@ const App: React.FC = () => (
      />
       </Link>
 
-      <Link className='position-relative'>
+      <Link to='/album-detail' className='position-relative'>
       <div className="title-wrapper position-absolute col-4 text-white">
         <h2 className="Album">
         Dawn FM
@@ -82,7 +82,7 @@ const App: React.FC = () => (
         <p className="Artist">
         The Weeknd
         </p>
-        <Link to='/'className='border-0 px-3 py-2 fw-bold w-20 rounded-pill text-dark text-center text-decoration-none'
+        <Link to='/album-detail' className='border-0 px-3 py-2 fw-bold w-20 rounded-pill text-dark text-center text-decoration-none'
             style={{background: "#1ed760"}} type="submit">
               
             Listen Now

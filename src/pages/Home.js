@@ -29,7 +29,7 @@ const Home = () => {
               <h3 className="section-heading text-white">Trending</h3>
             </div>
               <Album/>
-              <Album/>
+              <Artist/>
               <Album/>
               <Album/>
               <Album/>

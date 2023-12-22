@@ -1,4 +1,4 @@
-export const localStorage = (key) => {
+export const clocalStorage = (key) => {
   return {
     get: () => {
       const item = localStorage.getItem(key);

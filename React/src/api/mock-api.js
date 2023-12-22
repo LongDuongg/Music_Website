@@ -1,6 +1,10 @@
 import { waitTimeout } from "../utils/async";
+import { clocalStorage } from "../utils/localStorage";
+
+export const userInfo = clocalStorage("userInfo")
 
 export const guestApi = {
+
 
   signUp: async ({username, email, password}) => {
     await waitTimeout(500);
@@ -34,11 +38,16 @@ export const guestApi = {
         password: password,
       })
     })
-    .then( async (res) => {
-      const data = await res.json();
-      console.log(data);
-      return data;
-    }).catch((error) => console.log(error))
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.user)
+      userInfo.set(data.user) 
+    }) 
+    .catch(error => console.log(error))
   },
 
+
+  logout: () => {
+    userInfo.set(null)
+  }
 }

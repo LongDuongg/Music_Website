@@ -20,17 +20,23 @@ import {FiRepeat} from "react-icons/fi";
 import { Outlet } from 'react-router-dom';
 
 
+import {userInfo, guestApi} from "../api/mock-api"
+
+
 
 const { Header, Sider, Content } = Layout;
 
 const Mainlayout: React.FC = () => {
+  const [auth, setAuth] = useState({user: userInfo.get()})
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-
-const navigate = useNavigate();
-
+  
+  const navigate = useNavigate();
+  
+  console.log(auth.user);
+  
   return (
     <Layout className='' style={{background: "#121212", minheight: "100vh"}}>
     <Layout >
@@ -86,19 +92,36 @@ const navigate = useNavigate();
               height: 64,
             }}
           />
-            
-            
-            {/* <button className="btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"> */}
-              {/* <div className='d-flex h-100'>
-                <div className='d-flex h-100'>
-                  <img className='d-flex h-100 p-2' src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" alt="" />
-
-                </div>
-                <div className='text-white text-start '>
-                  <h5 className=''>Lam Toan</h5>
-                  <p className=''>lamtoan2104@gmail.com</p>
-                </div>
-              </div> */}
+            {auth.user ? (
+              <>
+                <button className="btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div className='d-flex h-100'>
+                    <div className='d-flex h-100'>
+                      <img className='d-flex h-100 p-2' src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" alt="" />
+                    </div>
+                    <div className='text-white text-start ' >
+                      <h5 className=''>{auth.user}</h5>
+                    </div>
+                  </div>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><Link to="/profile"className="dropdown-item ">Profile</Link></li>
+                  <li>
+                    <Link to="/login" className="dropdown-item " >
+                      <button style={{
+                        cursor: "pointer",
+                        background:"#0000",
+                        border:"none",
+                        color: "#000",
+                        fontSize: "1rem"
+                      }} onClick={() => {guestApi.logout()}}> 
+                        Log out
+                      </button>
+                    </Link>
+                  </li>
+                </ul>
+              </>
+            ) : (
               <Link to={"/Login"} className="btn">
                 <button style={{
                   padding: "7px 25px", 
@@ -112,26 +135,8 @@ const navigate = useNavigate();
                 }}>
                   Login
                 </button>
-              </Link>
-            {/* </button> */}
-
-            {/* <ul class="dropdown-menu">
-              <li><Link className="dropdown-item ">Profile</Link></li>
-              <li><Link to="/login" className="dropdown-item " >Log out</Link></li>
-              
-            </ul> */}
-              {/* </div>
-              <div className='text-white text-start '>
-                <h5 className=''>Lam Toan</h5>
-                <p className=''>lamtoan2104@gmail.com</p>
-              </div>
-            </div>
-  </button>
-  <ul class="dropdown-menu">
-    <li><Link to="/profile"className="dropdown-item ">Profile</Link></li>
-    <li><Link to="/login" className="dropdown-item " >Log out</Link></li>
-    
-  </ul> */}
+               </Link> 
+            )}
             
           
         </Header>

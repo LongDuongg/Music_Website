@@ -32,9 +32,12 @@ def login():
   print("user : {}".format(user.password))
   
   if user and check_password_hash(user.password, password) :
-    return "true"
+    return jsonify({
+      "user" : user.username,
+      "pass" : user.password 
+    })
 
-  return "false"
+  return jsonify(False)
   
   
   

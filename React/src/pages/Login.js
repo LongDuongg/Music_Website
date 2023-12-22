@@ -30,12 +30,13 @@ const Login = () => {
           type="submit"
           onClick={async (e) => {
             e.preventDefault();
-            if (guestApi.login({username, password})) {
-              navigate("/");
-            } else {
-              alert("invalid username or password")
-            }
-            // console.log( await guestApi.login({username, password}));
+            // if (guestApi.login({username, password})) {
+            //   navigate("/");
+            // } else {
+            //   alert("invalid username or password")
+            // }
+            guestApi.login({username, password})
+            navigate("/");
             setUsername('')
             setPassword('')
           }}

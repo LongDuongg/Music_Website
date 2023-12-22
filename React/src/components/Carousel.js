@@ -9,12 +9,8 @@ const contentStyle: React.CSSProperties = {
 
 const App: React.FC = () => (
   <Carousel autoplay>
-<<<<<<< HEAD:React/src/components/Carousel.js
-      <Link className='position-relative'>
-=======
    
       <Link to='/album-detail'className='position-relative'>
->>>>>>> origin/frontend:src/components/Carousel.js
       <div className="title-wrapper position-absolute col-4 text-white">
         <h2 className="Album">
         did you know that there's a tunnel under ocean blvd

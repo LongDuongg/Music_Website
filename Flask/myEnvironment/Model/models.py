@@ -2,11 +2,16 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 
+song_playlist = db.Table('song_playlist',
+  db.Column('song_id', db.Integer, db.ForeignKey('song.id'), primary_key=True),
+  db.Column('playlist_id', db.Integer, db.ForeignKey('playlist.id'), primary_key=True)
+)
+
 class Playlist(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(100), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-  songs = db.relationship('Song')
+  user = db.relationship('User', backref=db.backref('playlists', lazy='dynamic'))
 
   def __init__(self, title, user) :
     self.title = title
@@ -18,7 +23,6 @@ class User(db.Model):
   username = db.Column(db.String(50), unique=True, nullable=False)
   password = db.Column(db.String(255), nullable=False)
   email = db.Column(db.String(100), unique=True, nullable=False)
-  playLists = db.relationship('Playlist')
   
   def __init__(self, username, password, email) :
     self.username = username
@@ -30,10 +34,9 @@ class Song(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(255), nullable=False)
   artist = db.Column(db.String(255), nullable=False)
-  duration = db.Column(db.Integer)
+  url = db.Column(db.Text)
   release_date = db.Column(db.Date)
   genre = db.Column(db.String(50))
-  playLists_id = db.Column(db.Integer, db.ForeignKey('playlist.id'), nullable=False)
   
   def __init__(self, title, artist, duration, release_date, genre):
     self.title = title

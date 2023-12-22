@@ -4,7 +4,7 @@ import Fileupload from '../components/Fileupload'
 import { Link } from 'react-router-dom'
 import { Input } from 'antd';
 import { Select, Space } from 'antd';
-import type { SelectProps } from 'antd';
+import { SelectProps } from 'antd';
 
 
 const genres = [
@@ -22,15 +22,15 @@ const genres = [
    
   ];
   
-  const options: SelectProps['options'] = genres.map(genre => ({
+  const options = genres.map(genre => ({
     label: genre,
     value: genre.toLowerCase().replace(/\s/g, '-'),
   }));
   
-  const handleChange = (value: string[]) => {
+  const handleChange = (value) => {
     console.log(`Selected genres: ${value}`);
   };
-const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+const onChange = (e) => {
     console.log(e);
   };
 
@@ -49,42 +49,49 @@ const Upload = () => {
                     <button className='secondary-button py-3 my-3 rounded-pill bg-black'>Upload Cover</button>
                 </div>
                 <div className="col-7">
-                    <form action="">
-                        <Fileupload/>
-                        <div className="custom-input py-3">
-                            <h5 className='text-white'>Song title</h5>
-                            <Input placeholder="Enter song title" allowClear onChange={onChange} allowClear/>
-                        </div>
-                        
-                        
-                        <div className="custom-input py-3">
-                        <h5 className='text-white'>Genre</h5>
-                        <Select
-                            mode="multiple"
-                            allowClear
-                            style={{ width: '100%' }}
-                            placeholder="Genre"
-                            onChange={handleChange}
-                            options={options}
-                            allowClear
-                        />
-                        </div>
-                        
-                        <div className="custom-input py-3">
-                            <h5 className="text-white">Description</h5>
-                        <TextArea rows={4} placeholder="Describe your song" maxLength={6} />
-                        </div>
-                        
-                    </form>
-                    <div className="d-flex py-3">
-                        <div className="col-3 pe-2">
-                        <Link to=''className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-center text-decoration-none' style={{color: "#1ed760"}} type="submit">Cancel</Link>
-                        </div>
-                        
-                        <Link to=''className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-dark text-center text-decoration-none' style={{background: "#1ed760"}} type="submit">Upload</Link>
+                  <form action="">
+                    <Fileupload/>
 
+                    <div className="custom-input py-3">
+                        <h5 className='text-white'>Song title</h5>
+                        <Input placeholder="Enter song title" allowClear onChange={onChange}/>
+                    </div>
+                    
+                    <div className="custom-input py-3">
+                      <h5 className='text-white'>Artist</h5>
+                      <Input placeholder="Enter artist's name" allowClear onChange={onChange}/>
+                    </div>
+                    
+                    <div className="custom-input py-3">
+                      <h5 className='text-white'>Genre</h5>
+                      <Select
+                        mode="multiple"
+                        allowClear
+                        style={{ width: '100%' }}
+                        placeholder="Genre"
+                        onChange={handleChange}
+                        options={options}
+                      />
+                    </div>
+
+                    <div className="custom-input py-3">
+                      <h5 className='text-white'>Url</h5>
+                      <Input placeholder="Enter Url" allowClear onChange={onChange}/>
+                    </div>
+                    
+                    <div className="custom-input py-3">
+                      <h5 className="text-white">Release Date</h5>
+                      <Input placeholder="Date" allowClear onChange={onChange} />
                     </div>
                       
+                  </form>
+
+                  <div className="d-flex py-3">
+                    <div className="col-3 pe-2">
+                      <Link to=''className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-center text-decoration-none' style={{color: "#1ed760"}} type="submit">Cancel</Link>
+                    </div>
+                    <Link to=''className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-dark text-center text-decoration-none' style={{background: "#1ed760"}} type="submit">Upload</Link>
+                  </div>
                 </div>
             </div>
         </div>

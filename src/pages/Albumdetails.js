@@ -4,6 +4,7 @@ import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { FaPlay } from "react-icons/fa";
 import Album from '../components/Album';
 import TextArea from 'antd/es/input/TextArea';
+import Editsong from '../components/Editsong';
 
 const Albumdetails = () => {
     return (
@@ -106,7 +107,8 @@ const Albumdetails = () => {
                           <td>Alternative pop</td>
                           <td>3:41</td>
                           <td>
-                            <EditOutlined />
+                            <Editsong/>
+                            
                             <DeleteOutlined />
                           </td>
                         </tr>
@@ -122,7 +124,7 @@ const Albumdetails = () => {
                           <td>Pop</td>
                           <td>2:45</td>
                           <td>
-                            <EditOutlined />
+                          <Editsong/>
                             <DeleteOutlined />
                           </td>
                         </tr>
@@ -138,7 +140,7 @@ const Albumdetails = () => {
                           <td>Alternative pop</td>
                           <td>3:20</td>
                           <td>
-                            <EditOutlined />
+                          <Editsong/>
                             <DeleteOutlined />
                           </td>
                         </tr>

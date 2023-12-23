@@ -1,5 +1,5 @@
 import React from 'react'
-import Custominput from '../components/Custominput'
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import Fileupload from '../components/Fileupload'
 import { Link } from 'react-router-dom'
 import { Input } from 'antd';
@@ -36,21 +36,33 @@ const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) 
 
 const { TextArea } = Input;
 
-const Upload = () => {
+
+const Editsong = () => {
   return (
     <>
-        <div className="container-xxl">
+       
+<button type="button" className="border-0 text-white" style={{background:'transparent'}} data-toggle="modal" data-target="#exampleModalCenter">
+<EditOutlined />
+</button>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document" >
+    <div class="modal-content" style={{background:'black', border:'solid 2px #212121',borderRadius:'20px' }}>
+      
+      <div class="modal-body" >
+      <div className="container-xxl col-12 mt-4">
             
             <div className="d-flex">
-                <div className="col-3  me-3">
+                <div className="col-4  me-3">
                     <img src="https://t4.ftcdn.net/jpg/03/04/21/87/360_F_304218763_7okpFT8qUvZvRADsO1ACezQMJnt0AFQ7.jpg"
                     className='w-100'
                     alt="" />
                     <button className='secondary-button py-3 my-3 rounded-pill bg-black'>Upload Cover</button>
                 </div>
-                <div className="col-7">
+                <div className="col-8">
                     <form action="">
-                        <Fileupload/>
+
                         <div className="custom-input py-3">
                             <h5 className='text-white'>Song title</h5>
                             <Input placeholder="Enter song title" allowClear onChange={onChange} allowClear/>
@@ -76,9 +88,9 @@ const Upload = () => {
                         </div>
                         
                     </form>
-                    <div className="d-flex py-3">
+                    <div className="d-flex my-4 align-items-center">
                         <div className="col-3 pe-2">
-                        <Link to=''className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-center text-decoration-none' style={{color: "#1ed760"}} type="submit">Cancel</Link>
+                        <Link to=''className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-center text-decoration-none' style={{color: "#1ed760"}} data-dismiss="modal">Cancel</Link>
                         </div>
                         
                         <Link to=''className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-dark text-center text-decoration-none' style={{background: "#1ed760"}} type="submit">Upload</Link>
@@ -88,8 +100,13 @@ const Upload = () => {
                 </div>
             </div>
         </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
     </>
   )
 }
 
-export default Upload
+export default Editsong

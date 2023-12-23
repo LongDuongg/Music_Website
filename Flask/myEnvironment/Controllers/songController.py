@@ -12,20 +12,19 @@ def song() :
 
 @songController.route('/add_song', methods=['GET', 'POST'])
 def add_song():
-  if request.method == 'POST':
-    title = request.form['title']
-    artist = request.form['artist']
-    duration = request.form['duration']
-    release_date = request.form['release_date']
-    genre = request.form['genre']
+  title = request.json['title']
+  artist = request.json['artist']
+  url = request.json['url']
+  release_date = request.json['release_date']
+  genre = request.json['genre']
 
-    new_song = Song(title=title, artist=artist, duration=duration, release_date=release_date, genre=genre)
-    db.session.add(new_song)
-    db.session.commit()
+  print({title, artist, url, release_date, genre})
 
-    return redirect(url_for('view_songs'))
-
-  return render_template('add_song.html')
+  new_song = Song(title=title, artist=artist, url=url, release_date=release_date, genre=genre)
+  db.session.add(new_song)
+  db.session.commit()
+  
+  return "Ok"
   
   
 @songController.route('/<int:song_id>/delete', methods=['GET', 'POST'])

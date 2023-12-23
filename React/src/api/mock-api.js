@@ -5,7 +5,6 @@ export const userInfo = clocalStorage("userInfo")
 
 export const guestApi = {
 
-
   signUp: async ({username, email, password}) => {
     await waitTimeout(500);
     fetch("/auth/sign-up", {
@@ -50,4 +49,26 @@ export const guestApi = {
   logout: () => {
     userInfo.set(null)
   }
+}
+
+export const songApi = {
+  addSong : async ({title, artist, url, release_date, genre}) => {
+    await waitTimeout(500);
+    fetch("/song/add_song", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json, text/plain, */*",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        title: title,
+        artist: artist,
+        url: url,
+        release_date: release_date,
+        genre: genre        
+      })
+    })
+    .then(response => response.json())
+    .catch(error => console.log(error))
+  },
 }

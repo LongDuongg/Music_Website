@@ -38,10 +38,10 @@ class Song(db.Model):
   release_date = db.Column(db.Date)
   genre = db.Column(db.String(50))
   
-  def __init__(self, title, artist, duration, release_date, genre):
+  def __init__(self, title, artist, url, release_date, genre):
     self.title = title
     self.artist = artist
-    self.duration = duration
+    self.url = url
     self.release_date = release_date
     self.genre = genre
     

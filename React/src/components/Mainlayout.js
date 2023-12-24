@@ -19,6 +19,9 @@ import { RiAccountCircleLine } from "react-icons/ri";
 import {CgPlayTrackNext, CgPlayTrackPrev} from "react-icons/cg";
 import {FiRepeat} from "react-icons/fi";
 import { Outlet } from 'react-router-dom';
+import Editsong from './Editsong';
+
+
 
 
 import {userInfo, guestApi} from "../api/mock-api"
@@ -39,9 +42,11 @@ const Mainlayout: React.FC = () => {
   console.log(auth.user);
   
   return (
+    
     <Layout className='' style={{background: "#121212", minheight: "100vh"}}>
     <Layout >
       <Sider
+      
       style={{
         position: 'sticky',
         top: 0,
@@ -175,6 +180,7 @@ const Mainlayout: React.FC = () => {
           <Link className="Author">Author</Link>
         </div>
       </div>
+    
       <div className="Player-control d-flex flex-column align-items-center col-5">
         <div className='Control-button d-flex w-50 justify-content-between align-items-center'>
         <div className="">

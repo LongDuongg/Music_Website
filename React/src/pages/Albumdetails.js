@@ -4,6 +4,7 @@ import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { FaPlay } from "react-icons/fa";
 import Album from '../components/Album';
 import TextArea from 'antd/es/input/TextArea';
+import Editsong from '../components/Editsong';
 
 const Albumdetails = () => {
 

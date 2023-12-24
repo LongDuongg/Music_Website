@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { FaPlay } from "react-icons/fa";
@@ -6,6 +6,18 @@ import Album from '../components/Album';
 import TextArea from 'antd/es/input/TextArea';
 
 const Albumdetails = () => {
+
+    const [song, setSong] = useState([]);
+
+    useEffect(() => {
+        fetch("/song/get_songs")
+        .then(response => response.json())
+        .then(data => {
+            setSong(data)
+            console.log(song);
+        })
+    }, []);
+
     return (
         <>
             <section>
@@ -87,61 +99,37 @@ const Albumdetails = () => {
                           <th scope="col"></th>
                           <th scope="col">Title</th>
                           <th scope="col">Genre</th>
-                          <th scope="col">Duration</th>
+                          <th scope="col">Artist</th>
                           <th scope="col">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">
-                            <Link to='/song' className='play-button fw-bold text-center text-decoration-none'
-                              style={{ color: "#1ed760" }}>
+                        {song ? (
+                            song.map((s,i) => {
+                                return (
+                                    <tr>
+                                        <th scope="row">
+                                            <Link to='/song' className='play-button fw-bold text-center text-decoration-none'
+                                            style={{ color: "#1ed760" }}>
 
-                              <FaPlay className='h-100' />
-                            </Link>
-                          </th>
-                          <td>
-                            <Link to='/song' className='text-white text-decoration-none'>What Was I Made For...</Link>
-                          </td>
-                          <td>Alternative pop</td>
-                          <td>3:41</td>
-                          <td>
-                            <EditOutlined />
-                            <DeleteOutlined />
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <Link to='/song' className='play-button fw-bold text-center text-decoration-none'
-                              style={{ color: "#1ed760" }}>
-
-                              <FaPlay className='h-100' />
-                            </Link>
-                          </th>
-                          <td><Link to='/song' className='text-white text-decoration-none'>lovely</Link></td>
-                          <td>Pop</td>
-                          <td>2:45</td>
-                          <td>
-                            <EditOutlined />
-                            <DeleteOutlined />
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <Link to='/song' className='play-button fw-bold text-center text-decoration-none'
-                              style={{ color: "#1ed760" }}>
-
-                              <FaPlay className='h-100' />
-                            </Link>
-                          </th>
-                          <td><Link to='/song' className='text-white text-decoration-none'>Ocean eyes</Link></td>
-                          <td>Alternative pop</td>
-                          <td>3:20</td>
-                          <td>
-                            <EditOutlined />
-                            <DeleteOutlined />
-                          </td>
-                        </tr>
+                                            <FaPlay className='h-100' />
+                                            </Link>
+                                        </th>
+                                        <td>
+                                            <Link to='/song' className='text-white text-decoration-none'>{s.title}</Link>
+                                        </td>
+                                        <td>{s.genre}</td>
+                                        <td>{s.artist}</td>
+                                        <td>
+                                            <EditOutlined />
+                                            <DeleteOutlined />
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        ) : (
+                            <p>...Loading</p>
+                        )}
                       </tbody>
                     </table>
                                 <div className="mt-4">

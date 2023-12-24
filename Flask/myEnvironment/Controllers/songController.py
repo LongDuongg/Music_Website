@@ -1,13 +1,8 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, jsonify
 from sqlalchemy import or_
 from Model.models import db, Song
 
 songController = Blueprint("songController", __name__)
-
-@songController.route("/")
-def song() :
-  songs = Song.query.all()
-  return render_template('index.html', songs=songs)
 
 
 @songController.route('/add_song', methods=['GET', 'POST'])
@@ -64,3 +59,22 @@ def search():
     return render_template('search_results.html', songs=songs, search_query=search_query)
 
   return render_template('search.html')
+
+
+@songController.route('/get_songs')
+def getAllSongs() :
+  songs = Song.query.all()
+  list = []
+  
+  for song in songs :
+    obj = {
+      "title": song.title,
+      "artist": song.artist,
+      "genre": song.genre,
+    }
+    list.append(obj)
+    
+  print(list)
+
+  return list
+   

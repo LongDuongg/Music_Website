@@ -84,10 +84,10 @@ const Editsong = () => {
             
             <div className="d-flex my-4 align-items-center">
               <div className="col-3 pe-2">
-              <Link to='/album-detail'className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-center text-decoration-none' style={{color: "#1ed760"}} data-dismiss="modal">Cancel</Link>
+              <Link to='/libraries'className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-center text-decoration-none' style={{color: "#1ed760"}} data-dismiss="modal">Cancel</Link>
               </div>
               
-              <Link to='/album-detail'className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-dark text-center text-decoration-none' style={{background: "#1ed760"}} type="submit">Upload</Link>
+              <Link to='/libraries'className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-dark text-center text-decoration-none' style={{background: "#1ed760"}} type="submit">Upload</Link>
             </div>
           </div>
         </div>

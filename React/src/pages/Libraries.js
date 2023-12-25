@@ -102,8 +102,8 @@ const Libraries = () => {
                   <div className="col-12 d-flex gap-2">
                     <h3 className="section-heading text-white">Album</h3>
                     <Link className="">
-          <IoAddCircle className='text-white fs-2'/>
-        </Link>
+                      <IoAddCircle className='text-white fs-2'/>
+                    </Link>
                   </div>
                   <Album />
                   <Album />
@@ -117,7 +117,6 @@ const Libraries = () => {
             </section>
           </div>
         </div>
-
       </section>
     </>
   )

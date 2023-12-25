@@ -48,15 +48,15 @@ const Upload = () => {
     <>
       <div className="container-xxl">
         <div className="d-flex">
-          <div className="col-3  me-3">
+          {/* <div className="col-3  me-3">
               <img src="https://t4.ftcdn.net/jpg/03/04/21/87/360_F_304218763_7okpFT8qUvZvRADsO1ACezQMJnt0AFQ7.jpg"
               className='w-100'
               alt="" />
               <button className='secondary-button py-3 my-3 rounded-pill bg-black'>Upload Cover</button>
-          </div>
+          </div> */}
           <div className="col-7">
             <form action="">
-              <Fileupload/>
+              {/* <Fileupload/> */}
 
               <div className="custom-input py-3">
                   <h5 className='text-white'>Song title</h5>
@@ -95,7 +95,7 @@ const Upload = () => {
 
             <div className="d-flex py-3">
               <div className="col-3 pe-2">
-                <Link to='/'className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-center text-decoration-none' style={{color: "#1ed760"}} type="submit">Cancel</Link>
+                <Link to='/libraries'className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-center text-decoration-none' style={{color: "#1ed760"}} type="submit">Cancel</Link>
               </div>
               <Link to=''>
                 <button 

@@ -12,26 +12,30 @@ import Profile from './pages/Profile';
 import Albumdetails from './pages/Albumdetails';
 import Song from './pages/Song'
 import Searchresults from './pages/Searchresults'
+import Editsong from './pages/Editsong';
+import {ContextProvider} from "./context/GlobalContext";
 function App() {
   return (
-    <Router>
-      <Routes>
-        
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/signup" element={<Signup/>}/>
-        <Route path="/reset-password" element={<Resetpassword/>}/>
-        <Route path="/forgot-password" element={<Forgotpassword/>}/>
-        <Route path="/" element={<Mainlayout />}>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/search" element={<Search/>}/>
-          <Route path="/search-results" element={<Searchresults/>}/>
-          <Route path="/upload" element={<Upload/>}/>
-          <Route path="/profile" element={<Profile/>}/>
-          <Route path="/album-detail" element={<Albumdetails/>}/>
-          <Route path="/song" element={<Song/>}/>
-        </Route>
-      </Routes>
-    </Router>
+    <ContextProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/reset-password" element={<Resetpassword/>}/>
+          <Route path="/forgot-password" element={<Forgotpassword/>}/>
+          <Route path="/" element={<Mainlayout />}>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/search" element={<Search/>}/>
+            <Route path="/search-results" element={<Searchresults/>}/>
+            <Route path="/upload" element={<Upload/>}/>
+            <Route path="/edit-song" element={<Editsong/>}/>
+            <Route path="/profile" element={<Profile/>}/>
+            <Route path="/album-detail" element={<Albumdetails/>}/>
+            <Route path="/song" element={<Song/>}/>
+          </Route>
+        </Routes>
+      </Router>
+    </ContextProvider>
   );
 }
 

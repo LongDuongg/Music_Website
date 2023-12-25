@@ -27,10 +27,10 @@ def delete_song():
   data = json.loads(request.data)
   song_id = data['songID']
   print(song_id)
-  # song = Song.query.get(song_id)
+  song = Song.query.get(song_id)
 
-  # db.session.delete(song)
-  # db.session.commit()
+  db.session.delete(song)
+  db.session.commit()
 
   return "Ok"
 

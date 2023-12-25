@@ -23,7 +23,7 @@ import { Context } from '../context/GlobalContext';
 
 const { Header, Sider, Content } = Layout;
 
-const Mainlayout: React.FC = () => {
+const Mainlayout = () => {
   const { user, signOut } = useContext(Context);
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -31,11 +31,9 @@ const Mainlayout: React.FC = () => {
   } = theme.useToken();
   
   const navigate = useNavigate();
-  
-  // console.log(auth.user);
+
   
   return (
-    
     <Layout className='' style={{background: "#121212", minheight: "100vh"}}>
       <Layout >
         {user && (
@@ -103,7 +101,7 @@ const Mainlayout: React.FC = () => {
                         <img className='d-flex h-100 p-2' src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" alt="" />
                       </div>
                       <div className='text-white text-start ' >
-                        <h5 className=''>{user.user}</h5>
+                        <h5 className=''>{user}</h5>
                       </div>
                     </div>
                   </button>

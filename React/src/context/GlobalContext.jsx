@@ -8,7 +8,7 @@ export const ContextProvider = ({ children }) => {
 
   const loginUser = clocalStorage("loginUser");
 
-  const [auth, setAuth] = useState({ user: loginUser.get() });
+  const [auth, setAuth] = useState();
 
   const signIn = async ({ username, password }) => {
     await fetch("/auth/login", {
@@ -25,7 +25,7 @@ export const ContextProvider = ({ children }) => {
     .then(async (res) => {
       return await res.json().then((data) => {
         console.log(data);
-        setAuth({ data });
+        setAuth(data);
         loginUser.set(data);
       })
     }).catch((error) => console.log(error))

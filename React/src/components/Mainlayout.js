@@ -72,7 +72,7 @@ const Mainlayout: React.FC = () => {
                   label: 'Search',
                 },
                 {
-                  key: 'profile',
+                  key: 'libraries',
                   icon: <RiAccountCircleLine className='fs-4' />,
                   label: 'Your Libraries',
                 },
@@ -108,7 +108,7 @@ const Mainlayout: React.FC = () => {
                     </div>
                   </button>
                   <ul class="dropdown-menu">
-                    <li><Link to="/profile"className="dropdown-item ">Profile</Link></li>
+                    <li><Link to=""className="dropdown-item ">Profile</Link></li>
                     <li>
                       <Link to="/login" className="dropdown-item " >
                         <button style={{

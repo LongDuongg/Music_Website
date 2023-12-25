@@ -8,7 +8,7 @@ import Signup from './pages/Signup';
 import Home from './pages/Home';
 import Search from './pages/Search';
 import Upload from './pages/Upload';
-import Profile from './pages/Profile';
+import Libraries from './pages/Libraries';
 import Albumdetails from './pages/Albumdetails';
 import Song from './pages/Song'
 import Searchresults from './pages/Searchresults'
@@ -29,7 +29,7 @@ function App() {
             <Route path="/search-results" element={<Searchresults/>}/>
             <Route path="/upload" element={<Upload/>}/>
             <Route path="/edit-song" element={<Editsong/>}/>
-            <Route path="/profile" element={<Profile/>}/>
+            <Route path="/libraries" element={<Libraries/>}/>
             <Route path="/album-detail" element={<Albumdetails/>}/>
             <Route path="/song" element={<Song/>}/>
           </Route>

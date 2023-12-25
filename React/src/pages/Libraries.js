@@ -1,13 +1,26 @@
-import React from 'react'
+import React, {useState, useEffect}  from 'react'
 import Album from '../components/Album'
-import { Table } from 'antd';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { FaPlay } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoAddCircle } from "react-icons/io5";
+import { songApi } from '../api/mock-api';
 
+const Libraries = () => {
 
-const Profile = () => {
+  const [song, setSong] = useState([]);
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    fetch("/song/get_songs")
+    .then(response => response.json())
+    .then(data => {
+        setSong(data)
+        // console.log(song);
+    })
+}, []);
+
   return (
     <>
       <section className="profile-cover home-wrapper-2">
@@ -47,53 +60,35 @@ const Profile = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">
-                            <Link to='/song' className='play-button fw-bold text-center text-decoration-none'
-                              style={{ color: "#1ed760" }}>
+                      {song ? (
+                            song.map((s) => {
+                                return (
+                                    <tr key={s.id}>
+                                        <th scope="row">
+                                            <Link to='/song' className='play-button fw-bold text-center text-decoration-none'
+                                            style={{ color: "#1ed760" }}>
 
-                              <FaPlay className='h-100' />
-                            </Link>
-                          </th>
-                          <td>
-                            <Link to='/song' className='text-white text-decoration-none'>What Was I Made For...</Link>
-                          </td>
-                          <td>Alternative pop</td>
-                          <td>3:41</td>
-                          <td>
-                            <DeleteOutlined />
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <Link to='/song' className='play-button fw-bold text-center text-decoration-none'
-                              style={{ color: "#1ed760" }}>
-
-                              <FaPlay className='h-100' />
-                            </Link>
-                          </th>
-                          <td><Link to='/song' className='text-white text-decoration-none'>lovely</Link></td>
-                          <td>Pop</td>
-                          <td>2:45</td>
-                          <td>
-                            <DeleteOutlined />
-                          </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">
-                            <Link to='/song' className='play-button fw-bold text-center text-decoration-none'
-                              style={{ color: "#1ed760" }}>
-
-                              <FaPlay className='h-100' />
-                            </Link>
-                          </th>
-                          <td><Link to='/song' className='text-white text-decoration-none'>Ocean eyes</Link></td>
-                          <td>Alternative pop</td>
-                          <td>3:20</td>
-                          <td>
-                            <DeleteOutlined />
-                          </td>
-                        </tr>
+                                            <FaPlay className='h-100' />
+                                            </Link>
+                                        </th>
+                                        <td>
+                                            <Link to='/song' className='text-white text-decoration-none'>{s.title}</Link>
+                                        </td>
+                                        <td>{s.genre}</td>
+                                        <td>{s.artist}</td>
+                                        <td>
+                                            <EditOutlined onClick={() => {
+                                                songApi.getSongByID(s.id)
+                                                navigate("/edit-song")
+                                            }}/>
+                                            <DeleteOutlined onClick={() => {songApi.deleteSong(s.id)}}/>
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        ) : (
+                            <p>...Loading</p>
+                        )}
                       </tbody>
                     </table>
 
@@ -128,4 +123,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default Libraries

@@ -35,31 +35,32 @@ def delete_song():
   return "Ok"
 
 
-@songController.route('/<int:song_id>/edit', methods=['GET', 'POST'])
+@songController.route('/edit_song', methods=['GET', 'POST'])
 def edit_song(song_id):
   song = Song.query.get(song_id)
 
-  if request.method == 'POST':
-    song.title = request.form['title']
-    song.artist = request.form['artist']
-    song.duration = request.form['duration']
-    song.release_date = request.form['release_date']
-    song.genre = request.form['genre']
+  song.title = request.form['title']
+  song.artist = request.form['artist']
+  song.duration = request.form['duration']
+  song.release_date = request.form['release_date']
+  song.genre = request.form['genre']
 
-    db.session.commit()
-    return redirect(url_for('view_song', song_id=song.song_id))
-
-  return render_template('edit_song.html', song=song)
+  db.session.update(song)
+  db.session.commit()
 
 
-@songController.route('/search', methods=['GET', 'POST'])
+@songController.route('/select_song', methods=['GET', 'POST'])
 def search():
-  if request.method == 'POST':
-    search_query = request.form['search_query']
-    songs = Song.query.filter(or_(Song.title.ilike(f"%{search_query}%"), Song.artist.ilike(f"%{search_query}%"))).all()
-    return render_template('search_results.html', songs=songs, search_query=search_query)
-
-  return render_template('search.html')
+  id = request.json['id']
+  print(id)
+  song = Song.query.filter_by(id=id).first()
+  
+  return jsonify({
+    "id": song.id,
+    "title": song.title,
+    "artist": song.artist,
+    "genre": song.genre
+  })
 
 
 @songController.route('/get_songs')

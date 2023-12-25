@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { FaPlay } from "react-icons/fa";
 import Album from '../components/Album';
 import TextArea from 'antd/es/input/TextArea';
-import Editsong from '../components/Editsong';
 
 import { songApi } from '../api/mock-api';
 
@@ -12,12 +11,14 @@ const Albumdetails = () => {
 
     const [song, setSong] = useState([]);
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         fetch("/song/get_songs")
         .then(response => response.json())
         .then(data => {
             setSong(data)
-            console.log(song);
+            // console.log(song);
         })
     }, []);
 
@@ -108,9 +109,9 @@ const Albumdetails = () => {
                       </thead>
                       <tbody>
                         {song ? (
-                            song.map((s,i) => {
+                            song.map((s) => {
                                 return (
-                                    <tr key={i}>
+                                    <tr key={s.id}>
                                         <th scope="row">
                                             <Link to='/song' className='play-button fw-bold text-center text-decoration-none'
                                             style={{ color: "#1ed760" }}>
@@ -124,7 +125,10 @@ const Albumdetails = () => {
                                         <td>{s.genre}</td>
                                         <td>{s.artist}</td>
                                         <td>
-                                            <Editsong />
+                                            <EditOutlined onClick={() => {
+                                                songApi.getSongByID(s.id)
+                                                navigate("/edit-song")
+                                            }}/>
                                             <DeleteOutlined onClick={() => {songApi.deleteSong(s.id)}}/>
                                         </td>
                                     </tr>

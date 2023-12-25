@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { GoHome } from "react-icons/go";
 import { RiFolderMusicFill } from "react-icons/ri";
 import {
@@ -15,23 +15,16 @@ import{
   BsShuffle,
 } from "react-icons/bs";
 import { RiAccountCircleLine } from "react-icons/ri";
-
 import {CgPlayTrackNext, CgPlayTrackPrev} from "react-icons/cg";
 import {FiRepeat} from "react-icons/fi";
 import { Outlet } from 'react-router-dom';
-import Editsong from './Editsong';
 
-
-
-
-import {userInfo, guestApi} from "../api/mock-api"
-
-
+import { Context } from '../context/GlobalContext';
 
 const { Header, Sider, Content } = Layout;
 
 const Mainlayout: React.FC = () => {
-  const [auth, setAuth] = useState({user: userInfo.get()})
+  const { user, signOut } = useContext(Context);
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -39,7 +32,7 @@ const Mainlayout: React.FC = () => {
   
   const navigate = useNavigate();
   
-  console.log(auth.user);
+  // console.log(auth.user);
   
   return (
     
@@ -107,7 +100,7 @@ const Mainlayout: React.FC = () => {
               height: 64,
             }}
           />
-            {auth.user ? (
+            {user ? (
               <>
                 <button className="btn btn-secondary dropdown-toggle bg-transparent border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <div className='d-flex h-100'>
@@ -115,7 +108,7 @@ const Mainlayout: React.FC = () => {
                       <img className='d-flex h-100 p-2' src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" alt="" />
                     </div>
                     <div className='text-white text-start ' >
-                      <h5 className=''>{auth.user}</h5>
+                      <h5 className=''>{user.username}</h5>
                     </div>
                   </div>
                 </button>
@@ -129,7 +122,7 @@ const Mainlayout: React.FC = () => {
                         border:"none",
                         color: "#000",
                         fontSize: "1rem"
-                      }} onClick={() => {guestApi.logout()}}> 
+                      }} onClick={() => {signOut()}}> 
                         Log out
                       </button>
                     </Link>

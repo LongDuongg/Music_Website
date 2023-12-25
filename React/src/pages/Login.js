@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Custominput from '../components/Custominput'
 import { Link, useNavigate  } from 'react-router-dom'
 import { guestApi } from "../api/mock-api";
+import { Context } from '../context/GlobalContext';
 
 const Login = () => {
 
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+
+  const { signIn } = useContext(Context);
 
   const navigate = useNavigate();
 
@@ -30,12 +33,7 @@ const Login = () => {
           type="submit"
           onClick={async (e) => {
             e.preventDefault();
-            // if (guestApi.login({username, password})) {
-            //   navigate("/");
-            // } else {
-            //   alert("invalid username or password")
-            // }
-            guestApi.login({username, password})
+            await signIn({username, password})
             navigate("/");
             setUsername('')
             setPassword('')

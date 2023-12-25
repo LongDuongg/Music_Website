@@ -1,7 +1,4 @@
 import { waitTimeout } from "../utils/async";
-import { clocalStorage } from "../utils/localStorage";
-
-export const userInfo = clocalStorage("userInfo")
 
 export const guestApi = {
 
@@ -17,7 +14,6 @@ export const guestApi = {
         username: username,
         email: email,
         password: password,
-        //confirmedPass: confirmedPass
       })
     })
     .then(response => response.json())
@@ -40,15 +36,9 @@ export const guestApi = {
     .then(response => response.json())
     .then(data => {
       console.log(data.user)
-      userInfo.set(data.user) 
     }) 
     .catch(error => console.log(error))
   },
-
-
-  logout: () => {
-    userInfo.set(null)
-  }
 }
 
 export const songApi = {
@@ -72,6 +62,25 @@ export const songApi = {
     .catch(error => console.log(error))
   },
 
+
+  editSong : async ({title, artist, genre}) => {
+    await waitTimeout(500);
+    fetch("/song/edit_song", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json, text/plain, */*",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        title: title,
+        artist: artist,
+        genre: genre        
+      })
+    })
+    .then(response => response.json())
+    .catch(error => console.log(error))
+  },
+
   deleteSong: async (songID) => {
     await waitTimeout(500);
     fetch("/song/delete_song", {
@@ -87,5 +96,24 @@ export const songApi = {
     .then(response => {
       window.location.href = "/album-detail";
     })
+  },
+
+  getSongByID: async (id) => {
+    await waitTimeout(500);
+    fetch("/song/select_song", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json, text/plain, */*",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        id: id
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      // console.log(data)
+    })
+    .catch(error => console.log(error))
   }
 }

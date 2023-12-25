@@ -5,7 +5,7 @@ import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { FaPlay } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { IoAddCircle } from "react-icons/io5";
-import Editsong from '../components/Editsong';
+import Editsong from './Editsong';
 
 
 const Profile = () => {

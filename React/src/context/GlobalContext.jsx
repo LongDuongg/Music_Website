@@ -7,14 +7,14 @@ export const Context = createContext();
 
 export const ContextProvider = ({ children }) => {
 
-  const loginUser = cLocalStorage("loginUser");
+  const loginUser = clocalStorage("loginUser");
 
   const navigate = useNavigate();
 
   const [auth, setAuth] = useState({ user: loginUser.get() });
 
-  const signIn = async ({ email, password }) => {
-    const user = await guestApi.signIn({ email, password });
+  const signIn = async ({ username, password }) => {
+    const user = await guestApi.signIn({ username, password });
     setAuth({ user });
     loginUser.set(user);
     return user;

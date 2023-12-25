@@ -5,7 +5,6 @@ import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { FaPlay } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { IoAddCircle } from "react-icons/io5";
-import Editsong from './Editsong';
 
 
 const Profile = () => {
@@ -62,7 +61,6 @@ const Profile = () => {
                           <td>Alternative pop</td>
                           <td>3:41</td>
                           <td>
-                          <Editsong/>
                             <DeleteOutlined />
                           </td>
                         </tr>
@@ -78,7 +76,6 @@ const Profile = () => {
                           <td>Pop</td>
                           <td>2:45</td>
                           <td>
-                          <Editsong/>
                             <DeleteOutlined />
                           </td>
                         </tr>
@@ -94,7 +91,6 @@ const Profile = () => {
                           <td>Alternative pop</td>
                           <td>3:20</td>
                           <td>
-                          <Editsong/>
                             <DeleteOutlined />
                           </td>
                         </tr>

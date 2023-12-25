@@ -1,5 +1,4 @@
 import { useState, createContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { guestApi } from "../api/mock-api";
 import { clocalStorage } from "../utils/localStorage";
 
@@ -9,21 +8,32 @@ export const ContextProvider = ({ children }) => {
 
   const loginUser = clocalStorage("loginUser");
 
-  const navigate = useNavigate();
-
   const [auth, setAuth] = useState({ user: loginUser.get() });
 
   const signIn = async ({ username, password }) => {
-    const user = await guestApi.signIn({ username, password });
-    setAuth({ user });
-    loginUser.set(user);
-    return user;
+    await fetch("/auth/login", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json, text/plain, */*",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      })
+    })
+    .then(async (res) => {
+      return await res.json().then((data) => {
+        console.log(data);
+        setAuth({ data });
+        loginUser.set(data);
+      })
+    }).catch((error) => console.log(error))
   };
 
   const signOut = () => {
     setAuth(null);
     loginUser.set(null);
-    navigate("/");
   };
 
   return (

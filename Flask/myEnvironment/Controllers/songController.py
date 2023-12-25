@@ -35,18 +35,17 @@ def delete_song():
   return "Ok"
 
 
-@songController.route('/edit_song', methods=['GET', 'POST'])
-def edit_song(song_id):
-  song = Song.query.get(song_id)
+@songController.route('/edit_song/<int:id>', methods=['GET', 'POST'])
+def edit_song(id):
+  
+  song = Song.query.get(id)
 
-  song.title = request.form['title']
-  song.artist = request.form['artist']
-  song.duration = request.form['duration']
-  song.release_date = request.form['release_date']
-  song.genre = request.form['genre']
+  song.title = request.json['title']
+  song.artist = request.json['artist']
+  song.genre = request.json['genre']
 
-  db.session.update(song)
   db.session.commit()
+  return "OK"
 
 
 @songController.route('/select_song', methods=['GET', 'POST'])

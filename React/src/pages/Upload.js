@@ -110,7 +110,7 @@ const Upload = () => {
                     setUrl('')
                     setGenre('')
                     setRelease_date('')
-                    navigate("/album-detail")
+                    navigate("/libraries")
                   }}
                 >
                   Upload

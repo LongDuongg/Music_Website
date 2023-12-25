@@ -43,9 +43,9 @@ export const songApi = {
   },
 
 
-  editSong : async ({title, artist, genre}) => {
+  editSong : async ({id, title, artist, genre}) => {
     await waitTimeout(500);
-    fetch("/song/edit_song", {
+    fetch(`/song/edit_song/${id}`, {
       method: "POST",
       headers: {
         "Accept": "application/json, text/plain, */*",
@@ -77,23 +77,4 @@ export const songApi = {
       window.location.href = "/album-detail";
     })
   },
-
-  getSongByID: async (id) => {
-    await waitTimeout(500);
-    fetch("/song/select_song", {
-      method: "POST",
-      headers: {
-        "Accept": "application/json, text/plain, */*",
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        id: id
-      })
-    })
-    .then(response => response.json())
-    .then(data => {
-      // console.log(data)
-    })
-    .catch(error => console.log(error))
-  }
 }

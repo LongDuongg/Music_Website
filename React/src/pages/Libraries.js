@@ -1,10 +1,11 @@
-import React, {useState, useEffect}  from 'react'
+import React, {useState, useEffect, useContext}  from 'react'
 import Album from '../components/Album'
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import { FaPlay } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { IoAddCircle } from "react-icons/io5";
 import { songApi } from '../api/mock-api';
+
 
 const Libraries = () => {
 
@@ -60,32 +61,32 @@ const Libraries = () => {
                         </tr>
                       </thead>
                       <tbody>
-                      {song ? (
-                            song.map((s) => {
-                                return (
-                                    <tr key={s.id}>
-                                        <th scope="row">
-                                            <Link to='/song' className='play-button fw-bold text-center text-decoration-none'
-                                            style={{ color: "#1ed760" }}>
+                        {song ? (
+                          song.map((s) => {
+                            return (
+                              <tr key={s.id}>
+                                <th scope="row">
+                                  <Link to='/song' className='play-button fw-bold text-center text-decoration-none'
+                                  style={{ color: "#1ed760" }}>
 
-                                            <FaPlay className='h-100' />
-                                            </Link>
-                                        </th>
-                                        <td>
-                                            <Link to='/song' className='text-white text-decoration-none'>{s.title}</Link>
-                                        </td>
-                                        <td>{s.genre}</td>
-                                        <td>{s.artist}</td>
-                                        <td>
-                                            <EditOutlined onClick={() => {
-                                                songApi.getSongByID(s.id)
-                                                navigate("/edit-song")
-                                            }}/>
-                                            <DeleteOutlined onClick={() => {songApi.deleteSong(s.id)}}/>
-                                        </td>
-                                    </tr>
-                                )
-                            })
+                                  <FaPlay className='h-100' />
+                                  </Link>
+                                </th>
+                                <td>
+                                    <Link to='/song' className='text-white text-decoration-none'>{s.title}</Link>
+                                </td>
+                                <td>{s.genre}</td>
+                                <td>{s.artist}</td>
+                                <td>
+                                  <EditOutlined onClick={() => {
+                                    // console.log(s.id);
+                                    navigate(`/edit-song?id=${s.id}`)
+                                  }}/>
+                                  <DeleteOutlined onClick={() => {songApi.deleteSong(s.id)}}/>
+                                </td>
+                              </tr>
+                            )
+                          })
                         ) : (
                             <p>...Loading</p>
                         )}

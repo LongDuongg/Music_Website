@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, jsonify
+from flask import Blueprint, render_template, request, redirect, url_for, jsonify, json
 from sqlalchemy import or_
 from Model.models import db, Song
 
@@ -22,16 +22,17 @@ def add_song():
   return "Ok"
   
   
-@songController.route('/<int:song_id>/delete', methods=['GET', 'POST'])
-def delete_song(song_id):
-  song = Song.query.get(song_id)
+@songController.route('/delete_song', methods=['POST'])
+def delete_song():
+  data = json.loads(request.data)
+  song_id = data['songID']
+  print(song_id)
+  # song = Song.query.get(song_id)
 
-  if request.method == 'POST':
-    db.session.delete(song)
-    db.session.commit()
-    return redirect(url_for('view_songs'))
+  # db.session.delete(song)
+  # db.session.commit()
 
-  return render_template('delete_song.html', song=song)
+  return "Ok"
 
 
 @songController.route('/<int:song_id>/edit', methods=['GET', 'POST'])
@@ -68,13 +69,14 @@ def getAllSongs() :
   
   for song in songs :
     obj = {
+      "id": song.id,
       "title": song.title,
       "artist": song.artist,
       "genre": song.genre,
     }
     list.append(obj)
     
-  print(list)
+  # print(list)
 
   return list
    

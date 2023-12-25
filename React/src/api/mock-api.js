@@ -71,4 +71,21 @@ export const songApi = {
     .then(response => response.json())
     .catch(error => console.log(error))
   },
+
+  deleteSong: async (songID) => {
+    await waitTimeout(500);
+    fetch("/song/delete_song", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json, text/plain, */*",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        songID: songID
+      })
+    })
+    .then(response => {
+      window.location.href = "/album-detail";
+    })
+  }
 }

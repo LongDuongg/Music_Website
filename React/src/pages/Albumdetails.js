@@ -6,6 +6,8 @@ import Album from '../components/Album';
 import TextArea from 'antd/es/input/TextArea';
 import Editsong from '../components/Editsong';
 
+import { songApi } from '../api/mock-api';
+
 const Albumdetails = () => {
 
     const [song, setSong] = useState([]);
@@ -108,7 +110,7 @@ const Albumdetails = () => {
                         {song ? (
                             song.map((s,i) => {
                                 return (
-                                    <tr>
+                                    <tr key={i}>
                                         <th scope="row">
                                             <Link to='/song' className='play-button fw-bold text-center text-decoration-none'
                                             style={{ color: "#1ed760" }}>
@@ -122,8 +124,8 @@ const Albumdetails = () => {
                                         <td>{s.genre}</td>
                                         <td>{s.artist}</td>
                                         <td>
-                                            <EditOutlined />
-                                            <DeleteOutlined />
+                                            <Editsong />
+                                            <DeleteOutlined onClick={() => {songApi.deleteSong(s.id)}}/>
                                         </td>
                                     </tr>
                                 )

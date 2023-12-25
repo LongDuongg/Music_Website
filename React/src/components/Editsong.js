@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons'
 import Fileupload from '../components/Fileupload'
 import { Link } from 'react-router-dom'
@@ -38,6 +38,13 @@ const { TextArea } = Input;
 
 
 const Editsong = () => {
+
+  const [title, setTitle] = useState();
+  const [artist, setArtist] = useState();
+  const [url, setUrl] = useState();
+  const [release_date, setRelease_date] = useState();
+  const [genre, setGenre] = useState();
+
   return (
     <>
        
@@ -68,6 +75,10 @@ const Editsong = () => {
                             <Input placeholder="Enter song title" allowClear onChange={onChange} allowClear/>
                         </div>
                         
+                        <div className="custom-input py-3">
+                          <h5 className='text-white'>Artist</h5>
+                          <Input placeholder="Enter artist's name" allowClear value={artist} onChange={(e) => setArtist(e.target.value)}/>
+                        </div>
                         
                         <div className="custom-input py-3">
                         <h5 className='text-white'>Genre</h5>
@@ -82,10 +93,7 @@ const Editsong = () => {
                         />
                         </div>
                         
-                        <div className="custom-input py-3">
-                            <h5 className="text-white">Description</h5>
-                        <TextArea rows={4} placeholder="Describe your song" maxLength={6} />
-                        </div>
+                       
                         
                     </form>
                     <div className="d-flex my-4 align-items-center">
@@ -93,7 +101,14 @@ const Editsong = () => {
                         <Link to=''className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-center text-decoration-none' style={{color: "#1ed760"}} data-dismiss="modal">Cancel</Link>
                         </div>
                         
-                        <Link to=''className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-dark text-center text-decoration-none' style={{background: "#1ed760"}} type="submit">Upload</Link>
+                        <Link 
+                          to=''
+                          className='border-0 px-3 py-2 fw-bold w-100 rounded-pill mt-2 text-dark text-center text-decoration-none' 
+                          style={{background: "#1ed760"}} 
+                          type="submit"
+                        >
+                          Edit
+                        </Link>
 
                     </div>
                       

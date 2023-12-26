@@ -9,7 +9,7 @@ const Login = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
-  const { signIn } = useContext(Context);
+  const { signIn, loginUser } = useContext(Context);
 
   const navigate = useNavigate();
 
@@ -34,7 +34,11 @@ const Login = () => {
           onClick={async (e) => {
             e.preventDefault();
             await signIn({username, password})
-            navigate("/");
+            if(loginUser.get() === false) {
+              alert("invalid username or password")
+            } else {
+              navigate("/");
+            }
             setUsername('')
             setPassword('')
           }}

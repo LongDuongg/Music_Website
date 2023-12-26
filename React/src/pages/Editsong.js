@@ -119,7 +119,7 @@ const Editsong = () => {
                   e.preventDefault();
                   const id = parseInt(songId)
                   await songApi.editSong({id, title, artist, genre})
-                  console.log(typeof id);
+                  // console.log(typeof id);
                   setTitle('');
                   setArtist('');
                   setGenre('');

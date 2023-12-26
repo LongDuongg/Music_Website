@@ -29,15 +29,18 @@ def login():
   
   user = User.query.filter_by(username=username).first()
 
-  print("user : {}".format(user.password))
+  # print("user : {}".format(user.password))
   
-  if user and check_password_hash(user.password, password) :
-    return jsonify({
-      "user" : user.username,
-      "pass" : user.password 
-    })
-
-  return jsonify(False)
+  if user :
+    if check_password_hash(user.password, password) :
+      return jsonify({
+        "user" : user.username,
+        "pass" : user.password 
+      })
+    else :
+      return jsonify(False)
+  else :
+    return jsonify(False)
   
   
   

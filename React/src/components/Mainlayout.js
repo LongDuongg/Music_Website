@@ -101,14 +101,14 @@ const Mainlayout = () => {
                         <img className='d-flex h-100 p-2' src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp" alt="" />
                       </div>
                       <div className='text-white text-start ' >
-                        <h5 className=''>{user}</h5>
+                        <h5 className=''>{user.user}</h5>
                       </div>
                     </div>
                   </button>
                   <ul class="dropdown-menu">
                     <li><Link to=""className="dropdown-item ">Profile</Link></li>
                     <li>
-                      <Link to="/login" className="dropdown-item " >
+                      <Link to="/" className="dropdown-item " >
                         <button style={{
                           cursor: "pointer",
                           background:"#0000",

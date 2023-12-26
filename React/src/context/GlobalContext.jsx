@@ -1,10 +1,12 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { clocalStorage } from "../utils/localStorage";
 
 export const Context = createContext();
 
 export const ContextProvider = ({ children }) => {
   const loginUser = clocalStorage("loginUser");
+
+  const [auth, setAuth] = useState(loginUser.get());
 
   const songInfo = clocalStorage("songInfo");
 
@@ -23,6 +25,7 @@ export const ContextProvider = ({ children }) => {
       .then(async (res) => {
         return await res.json().then((data) => {
           console.log(data);
+          setAuth({ ...auth, user: data });
           loginUser.set(data);
         });
       })
@@ -30,13 +33,15 @@ export const ContextProvider = ({ children }) => {
   };
 
   const signOut = () => {
+    setAuth(null);
     loginUser.set(null);
   };
 
   return (
     <Context.Provider
       value={{
-        user: loginUser.get().user,
+        user: auth?.user,
+        loginUser,
         songInfo,
         signIn,
         signOut,

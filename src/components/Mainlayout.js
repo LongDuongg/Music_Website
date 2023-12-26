@@ -20,6 +20,11 @@ import {CgPlayTrackNext, CgPlayTrackPrev} from "react-icons/cg";
 import {FiRepeat} from "react-icons/fi";
 import { Outlet } from 'react-router-dom';
 import Editsong from './Editsong';
+<<<<<<< HEAD
+=======
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
+>>>>>>> frontend2
 
 
 
@@ -146,6 +151,7 @@ const navigate = useNavigate();
           <Link className="Author">Author</Link>
         </div>
       </div>
+<<<<<<< HEAD
     
       <div className="Player-control d-flex flex-column align-items-center col-5">
         <div className='Control-button d-flex w-50 justify-content-between align-items-center'>
@@ -166,6 +172,15 @@ const navigate = useNavigate();
         </div>
       </div>
       </div>
+=======
+      <AudioPlayer className='col-5'
+    autoPlay
+    src="http://example.com/audio.mp3"
+    onPlay={e => console.log("onPlay")}
+    style={{backgroundColor:'#121212'}}
+    // other props here
+  />
+>>>>>>> frontend2
     </div>
     
     </Layout>

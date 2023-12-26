@@ -6,6 +6,11 @@ import { FaPlay } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { IoAddCircle } from "react-icons/io5";
 import Editsong from '../components/Editsong';
+<<<<<<< HEAD
+=======
+import Editprofile from '../components/Editprofile'
+import Fileupload from '../components/Fileupload';
+>>>>>>> frontend2
 
 
 const Profile = () => {
@@ -15,6 +20,7 @@ const Profile = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-12 ">
+<<<<<<< HEAD
               <div className="cover-img position-relative">
                 <img src="https://yt3.googleusercontent.com/63giC-V_Ovv-skWtQJU3v4pw2-jxZpjWdgpuO6EerTiUHGu5XLYriLoKjtjQrNawA_JMif276A=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
                   className='img-fluid w-100'
@@ -29,6 +35,35 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
+=======
+              <div className="cover-img position-relative pb-0">
+                <img src="https://yt3.googleusercontent.com/63giC-V_Ovv-skWtQJU3v4pw2-jxZpjWdgpuO6EerTiUHGu5XLYriLoKjtjQrNawA_JMif276A=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
+                  className='img-fluid w-100'
+                  alt="" />
+               <div className="floatted-edit-button position-absolute">
+               <Fileupload/>
+               </div>
+                        
+                 
+              </div>
+              <div className=" d-flex align-items-center mb-4">
+                <div className="profile-img position-relative">
+                <img src="https://yt3.googleusercontent.com/ytc/AIf8zZRaDMm7rEPlVfdI3IS_ruwq8W_KxuCuW7f4zdupGQ=s176-c-k-c0x00ffffff-no-rj"
+                    className='rounded-circle'
+                    alt="" />
+                    <div className="floatted-edit-profile-button position-absolute">
+               <Fileupload/>
+               </div>
+                </div>
+                
+                  
+                  <div className="profile-detail p-4 d-flex align-items-center">
+                    <h2 className="text-white fw-bold mb-0">Billie Eilish</h2>
+                    <Editprofile/>
+                  </div>
+                  
+                </div>
+>>>>>>> frontend2
 
             </div>
             <section className='all-songs'>
@@ -78,7 +113,11 @@ const Profile = () => {
                           <td>Pop</td>
                           <td>2:45</td>
                           <td>
+<<<<<<< HEAD
                           <Editsong/>
+=======
+                         <Editsong/>
+>>>>>>> frontend2
                             <DeleteOutlined />
                           </td>
                         </tr>

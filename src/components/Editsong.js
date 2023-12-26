@@ -41,12 +41,20 @@ const Editsong = () => {
   return (
     <>
        
+<<<<<<< HEAD
 <button type="button" className="border-0 text-white" style={{background:'transparent'}} data-toggle="modal" data-target="#exampleModalCenter">
+=======
+<button type="button" className="border-0 text-white" style={{background:'transparent'}} data-toggle="modal" data-target="#Editsongmodal">
+>>>>>>> frontend2
 <EditOutlined />
 </button>
 
 
+<<<<<<< HEAD
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+=======
+<div class="modal fade" id="Editsongmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+>>>>>>> frontend2
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document" >
     <div class="modal-content" style={{background:'black', border:'solid 2px #212121',borderRadius:'20px' }}>
       
@@ -86,6 +94,13 @@ const Editsong = () => {
                             <h5 className="text-white">Description</h5>
                         <TextArea rows={4} placeholder="Describe your song" maxLength={6} />
                         </div>
+<<<<<<< HEAD
+=======
+                        <div className="custom-input py-3">
+                            <h5 className="text-white">Lyrics</h5>
+                        <TextArea rows={4} placeholder="Your lyrics" maxLength={6} />
+                        </div>
+>>>>>>> frontend2
                         
                     </form>
                     <div className="d-flex my-4 align-items-center">

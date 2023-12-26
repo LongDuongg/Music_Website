@@ -50,7 +50,11 @@
 }
 
 .cover-img{
+<<<<<<< HEAD
   height: 400px;
+=======
+  
+>>>>>>> frontend2
 }
 
 .ant-table-row{
@@ -140,4 +144,37 @@ input[type="range"] {
   .component {
     width: 50%;
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+.floatted-edit-button{
+  bottom: -40px;
+  right:10px;
+  transition: 0.3s;
+}
+
+.cover-img:hover .floatted-edit-button{
+  bottom: 10px;
+}
+
+.cover-img{
+  overflow: hidden;
+}
+
+.floatted-edit-profile-button{
+  bottom: -40px;
+  left: 20%;
+  transition: 0.3s;
+}
+.profile-img:hover .floatted-edit-profile-button{
+  bottom:60px;
+}
+.profile-img{
+  overflow: hidden;
+}
+
+
+
+>>>>>>> frontend2

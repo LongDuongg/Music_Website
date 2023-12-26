@@ -82,7 +82,10 @@ const Libraries = () => {
                                     // console.log(s.id);
                                     navigate(`/edit-song?id=${s.id}`)
                                   }}/>
-                                  <DeleteOutlined onClick={() => {songApi.deleteSong(s.id)}}/>
+                                  <DeleteOutlined onClick={() => {
+                                    songApi.deleteSong(s.id)
+                                    
+                                  }}/>
                                 </td>
                               </tr>
                             )

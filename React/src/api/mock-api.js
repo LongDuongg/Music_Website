@@ -74,7 +74,7 @@ export const songApi = {
       })
     })
     .then(response => {
-      window.location.href = "/album-detail";
+      window.location.href = "/libraries";
     })
   },
 }

@@ -1,0 +1,144 @@
+.title-wrapper {
+  top: 15%;
+  left: 3%
+}
+
+.floatted-button{
+  background-color: rgb(30, 215, 96);
+  height: 50px;
+  width: 50px;
+  bottom: -60px;
+  right:10px;
+  transition: 0.3s;
+}
+
+
+.button {
+  background-color: rgb(30, 215, 96);
+}
+
+.album-cover{
+overflow: hidden;
+}
+
+.artist-cover{
+overflow: hidden;
+}
+
+.album-card:hover .floatted-button{
+bottom: 10px;
+}
+
+.ant-input-affix-wrapper{
+height: 50px;
+}
+
+.ant-select{
+height: 50px;
+}
+
+.ant-input-affix-wrapper:focus-within{
+border: solid 1px rgb(30, 215, 96);
+}
+
+.ant-input-affix-wrapper:hover{
+border: solid 1px #1ed760;
+}
+
+.profile-img{
+bottom: 5%;
+}
+
+.cover-img{
+height: 400px;
+
+}
+
+.ant-table-row{
+background: none;
+}
+
+.play-button{
+width: 50px;
+height: 50px;
+}
+
+.table-dark{
+--bs-table-bg: black;
+--bs-table-border-color: #212121;
+}
+
+.ant-input:focus-within{
+border-color: #1ed760;
+}
+
+.ant-input:hover{
+border-color: #1ed760;
+}
+
+.ant-select:focus-within{
+border-color: #1ed760;
+}
+
+.ant-select:hover{
+border-color: #1ed760;
+}
+
+body {
+background-color: #e5e5e5;
+}
+
+.App {
+font-family: sans-serif;
+text-align: center;
+}
+
+.component {
+background-color: white;
+width: 25%;
+max-width: 600px;
+margin: 1em auto;
+padding-bottom: 2em;
+border: 0.1px solid black;
+border-radius: 10px;
+}
+
+.musicCover {
+border-radius: 10%;
+}
+
+.playButton {
+background: none;
+border: none;
+align-items: center;
+justify-content: center;
+}
+
+.subTitle {
+margin-top: -1em;
+color: #4f4f4f;
+}
+
+.time {
+margin: 0 auto;
+width: 80%;
+display: flex;
+justify-content: space-between;
+color: #828282;
+font-size: smaller;
+}
+
+.timeline {
+width: 80%;
+background-color: #27ae60;
+}
+
+input[type="range"] {
+background-color: #27ae60;
+}
+
+@media (max-width: 900px) {
+.component {
+  width: 50%;
+}
+}

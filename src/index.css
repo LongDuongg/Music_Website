@@ -1,0 +1,90 @@
+body{
+  font-family: 'Inter', sans-serif;
+}
+
+.trigger{
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover{
+  color: #1890ff;
+}
+
+.logo{
+  height: 32px;
+  margin:16px;
+  background: rgb(255, 255, 255, 0.3);
+}
+
+.ant-layout{
+  min-height: 100vh;
+  background-color: #121212;
+}
+
+.ant-layout .ant-layout-sider{
+  background-color: black;
+}
+
+.ant-menu-dark {
+  background-color: black;
+}
+
+.ant-menu-dark .ant-menu-item-selected{
+  background-color: #121212;
+}
+
+.ant-layout-header h5{
+  line-height: 10px;
+}
+
+.ant-layout-header p{
+  line-height: 10px;
+}
+
+.footer {
+  background-color: #121212;
+}
+
+.Current-track img{
+  width: 120px;
+  height: 120px;
+}
+
+.Track-title{
+  font-size: 34px;
+  color: white;
+  text-decoration: none;
+  line-height: 30px;
+}
+
+.Author{
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+}
+
+.Track-title:hover{
+  color: rgb(30, 215, 96);
+}
+
+.Author:hover{
+  color: rgb(30, 215, 96);
+}
+
+.secondary-button{
+  width: 100%;
+  border: solid 1px rgb(30, 215, 96);
+  color: rgb(30, 215, 96);
+}
+
+.ant-table{
+  background: none;
+}
+
+.rhap_background-color{
+  background-color: #212121;
+}
